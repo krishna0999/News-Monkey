@@ -3,30 +3,26 @@ import "./App.css";
 import React, { Component } from "react";
 import NavBar from "./components/NavBar";
 import News from "./components/News";
-import Footer from "./components/Footer";
+import { useState } from "react";
+// import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar'
 
 
 
-export class App extends Component {
+const App = () => {
 
-state = {
-  progress : 0,
-}
+const [progress, setProgress] = useState(0);
 
-setProgress = (progress) => {
-  this.setState({progress : progress})
-}
 
-  render() {
+
     return (
       <>
         <Router>
           <NavBar />
           <LoadingBar
         color='#f11946'
-        progress={this.state.progress}
+        progress={progress}
       />
           <Routes>
             <Route
@@ -34,7 +30,7 @@ setProgress = (progress) => {
               path="/"
               key="general"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"general"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"general"} />
               }
             />
 
@@ -43,7 +39,7 @@ setProgress = (progress) => {
               path="/home"
               key="general"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"general"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"general"} />
               }
             />
 
@@ -52,7 +48,7 @@ setProgress = (progress) => {
               path="/entertainment"
               key="entertainment"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"entertainment"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"entertainment"} />
               }
             />
 
@@ -61,7 +57,7 @@ setProgress = (progress) => {
               path="/business"
               key="business"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"business"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"business"} />
               }
             />
 
@@ -70,7 +66,7 @@ setProgress = (progress) => {
               path="/sports"
               key="sports"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"sports"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"sports"} />
               }
             />
 
@@ -79,7 +75,7 @@ setProgress = (progress) => {
               path="/health"
               key="health"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"health"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"health"} />
               }
             />
 
@@ -88,7 +84,7 @@ setProgress = (progress) => {
               path="/technology"
               key="technology"
               element={
-                <News setProgress={this.setProgress}  pageSize={12} country={"in"} category={"technology"} />
+                <News setProgress={setProgress}  pageSize={12} country={"in"} category={"technology"} />
               }
             />
           </Routes>
@@ -96,7 +92,6 @@ setProgress = (progress) => {
         </Router>
       </>
     );
-  }
 }
 
 export default App;

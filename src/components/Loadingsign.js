@@ -1,15 +1,13 @@
 
-import React, { Component } from 'react'
+import React from 'react'
 import loading from '../loading.gif'
 
-export class Loadingsign extends Component {
-    render() {
+const Loadingsign = () => {
         return (
             <div className="text-center my-5">
                 <img src={loading} alt="loading" />
             </div>
         )
-    }
 }
 
 export default Loadingsign
